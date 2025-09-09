@@ -15,4 +15,12 @@ list.append("hamster");
 list.append("snake");
 list.append("turtle");
 
+list.prepand("hello");
+
+console.log(list.getSize());
 console.log(list.toString());
+// ( dog ) -> ( cat ) -> ( parrot ) -> ( hamster ) -> ( snake ) -> ( turtle ) -> null
+console.log(list.contains("jump"));
+console.log(list.contains("cat"));
+
+console.log(list.find("parrot"));

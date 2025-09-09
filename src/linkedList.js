@@ -5,18 +5,37 @@ class LinkedList {
   }
 
   append(value) {
-    const number = new Node(value);
+    const node = new Node(value);
+
+    if (this.size === 0) {
+      this.head = node;
+    } else {
+      let last = this.head;
+      while (last.nextNode) {
+        last = last.nextNode;
+      }
+      last.nextNode = node;
+    }
+    this.size++;
   }
 
   prepand(value) {
-    const number = new Node(value);
+    const node = new Node(value);
+
+    if (this.head == null) {
+      this.head = node;
+    } else {
+      node.nextNode = this.head;
+      this.head = node;
+    }
+    this.size++;
   }
 
-  size() {
+  getSize() {
     return this.size;
   }
 
-  head() {
+  getHead() {
     return this.head;
   }
 
@@ -29,16 +48,44 @@ class LinkedList {
   }
 
   contains(value) {
-    // checks if value is present in this
+    let last = this.head;
+    while (last.nextNode) {
+      if (last.value == value) {
+        return true;
+      }
+      last = last.nextNode;
+    }
+    return false;
   }
 
   find(value) {
     // returns node with this value
+    let index = 0;
+    let last = this.head;
+    while (last.nextNode) {
+      if (last.value == value) {
+        return index;
+      }
+      last = last.nextNode;
+      index++;
+    }
+    return null;
   }
 
   toString() {
     // prints this
     //  The format should be: ( value ) -> ( value ) -> ( value ) -> null
+
+    let statement = ``;
+    let last = this.head;
+    // console.log(last.nextNode)
+    while (last.nextNode) {
+      statement += `( ${last.value} ) -> `;
+      last = last.nextNode;
+    }
+    statement += "null";
+
+    return statement;
   }
 
   // Extras
@@ -58,4 +105,4 @@ class Node {
   }
 }
 
-export { LinkedList };
+export default LinkedList;
