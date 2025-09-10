@@ -41,6 +41,14 @@ class LinkedList {
 
   at(index) {
     // return node at index
+    let count = 0;
+
+    let last = this.head;
+    while (count <= index) {
+      last = last.nextNode;
+      count++;
+    }
+    return last;
   }
 
   pop() {
@@ -73,7 +81,6 @@ class LinkedList {
   }
 
   toString() {
-    // prints this
     //  The format should be: ( value ) -> ( value ) -> ( value ) -> null
 
     let statement = ``;

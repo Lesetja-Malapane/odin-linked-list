@@ -24,3 +24,5 @@ console.log(list.contains("jump"));
 console.log(list.contains("cat"));
 
 console.log(list.find("parrot"));
+
+console.log(list.at(3));
